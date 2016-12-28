@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"code.google.com/p/google-api-go-client/youtube/v3"
+	"google.golang.org/api/youtube/v3"
 )
 
 var (
@@ -14,7 +14,7 @@ var (
 	playlistID = flag.String("playlistid", "", "ID of playlist to post")
 )
 
-func main() {
+func main2() {
 	flag.Parse()
 
 	// A bulletin must contain a message and may also contain a video or a
@@ -28,7 +28,7 @@ func main() {
 		log.Fatalf("You cannot post a video and a playlist at the same time.")
 	}
 
-	client, err := buildOAuthHTTPClient(youtube.YoutubeScope)
+	client, err := buildOAuthHTTPClient([]string{youtube.YoutubeScope})
 	if err != nil {
 		log.Fatalf("Error building OAuth client: %v", err)
 	}

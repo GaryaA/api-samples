@@ -7,11 +7,11 @@ import (
 	"os"
 	"strings"
 
-	"code.google.com/p/google-api-go-client/youtube/v3"
+	"google.golang.org/api/youtube/v3"
 )
 
 var (
-	filename    = flag.String("filename", "", "Name of video file to upload")
+	filename    = flag.String("filename", "C:\\Users\\gnimgirov\\Downloads\\VID_20150322_151638.mp4", "Name of video file to upload")
 	title       = flag.String("title", "Test Title", "Video title")
 	description = flag.String("description", "Test Description", "Video description")
 	category    = flag.String("category", "22", "Video category")
@@ -19,14 +19,14 @@ var (
 	privacy     = flag.String("privacy", "unlisted", "Video privacy status")
 )
 
-func main() {
+func main4() {
 	flag.Parse()
 
 	if *filename == "" {
 		log.Fatalf("You must provide a filename of a video file to upload")
 	}
 
-	client, err := buildOAuthHTTPClient(youtube.YoutubeUploadScope)
+	client, err := buildOAuthHTTPClient([]string{youtube.YoutubeUploadScope})
 	if err != nil {
 		log.Fatalf("Error building OAuth client: %v", err)
 	}

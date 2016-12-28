@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"log"
 
-	"code.google.com/p/google-api-go-client/youtube/v3"
+	"google.golang.org/api/youtube/v3"
 )
 
-func main() {
+func main3() {
 	flag.Parse()
 
-	client, err := buildOAuthHTTPClient(youtube.YoutubeReadonlyScope)
+	client, err := buildOAuthHTTPClient([]string{youtube.YoutubeReadonlyScope})
 	if err != nil {
 		log.Fatalf("Error building OAuth client: %v", err)
 	}

@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"code.google.com/p/google-api-go-client/googleapi/transport"
-	"code.google.com/p/google-api-go-client/youtube/v3"
+	"google.golang.org/api/googleapi/transport"
+	"google.golang.org/api/youtube/v3"
 )
 
 var (
@@ -17,7 +17,7 @@ var (
 
 const developerKey = "YOUR DEVELOPER KEY"
 
-func main() {
+func main1() {
 	flag.Parse()
 
 	client := &http.Client{
